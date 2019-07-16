@@ -1,0 +1,93 @@
+{% extends 'attendance/basic.html' %}
+
+{% block title %}Manage users{% endblock %}
+
+{% block body %}
+<div class="container-fluid" >
+    <div class="row">
+  <div class="col-4 bg-info" >
+      <br>
+  <h1 class="text-center" >MANAGE DETAILS</h1>
+  <br>
+      <label>Enter ID to Select Card</label>
+      <form class="form-inline" action="/cardselect/" method="post"> {% csrf_token %}
+  <input type="text" name="idsearch" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Enter ID">
+          <input type="submit" name="sel" class="btn btn-warning mb-2"></input>
+          <button type="submit" name="del" class="btn btn-danger mb-2 ml-2 " >Remove</button>
+</form>
+      <label class="text-center" >{{cardstatus}}</label>
+      <form action="/cardedit/" method="post"> {% csrf_token %}
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name">
+  </div>
+  <div class="form-group">
+    <label for="dob">Date of Birth</label>
+    <input type="date" name="date" class="form-control" id="dob" placeholder="Enter DOB">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="phone">Phone Number</label>
+      <input type="number" name="phone" class="form-control" id="phone" placeholder="Phone no.">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Email</label>
+      <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="Email">
+    </div>
+  </div>
+   <label>Gender</label>
+   <div class="text-center">
+       <div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="Male">
+  <label class="form-check-label mr-5" for="inlineRadio1">Male</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="Female">
+  <label class="form-check-label" for="inlineRadio2">Female</label>
+</div>
+   </div>
+  <div class="form-group">
+    <label for="inputAddress">Address</label>
+    <input type="text" name="address" class="form-control" id="inputAddress" placeholder="1234 Main St">
+  </div>
+  <div>
+  <button type="submit" class="btn btn-warning">Submit Details</button>
+  </div>
+</form>
+      <br>
+  </div>
+  <div class="col-8 text-center">
+      <br>
+  <h1 class="text-center text-danger" >ALL USERS</h1>
+  <br>
+      <table class="table">
+  <thead class="thead-light">
+    <TR>
+    <TH>ID.No</TH>
+    <TH>CardID</TH>
+    <TH>Name</TH>
+    <TH>Phone Number</TH>
+        <TH>DOB</TH>
+    <TH>Gender</TH>
+</TR>
+  </thead>
+  <tbody id="manage" class="manage">
+    </tbody>
+</table>
+      </div>
+    </div>
+      </div>
+      {% endblock %}
+{% block js %}
+<script>
+$(document).ready(function(){
+    setInterval(function(){
+      $.ajax({
+        url: {% url 'manage1' %}
+        }).done(function(data) {
+        $('#manage').html(data);
+      });
+    },3000);
+  });
+  </script>
+{% endblock %}

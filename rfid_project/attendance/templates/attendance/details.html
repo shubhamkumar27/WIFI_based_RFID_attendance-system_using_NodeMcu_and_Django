@@ -1,0 +1,37 @@
+{% extends 'attendance/basic.html' %}
+
+{% block title %}User Details{% endblock %}
+
+{% block body %}
+<div class="container-fluid text-center" >
+  <br>
+  <h1 class="text-center text-success" >CURRENT USERS</h1>
+  <br>
+  <table class="table">
+  <thead class="thead-light">
+    <TR>
+    <TH>ID.No</TH>
+    <TH>Card ID</TH>
+    <TH>Name</TH>
+    <TH>Phone Number</TH>
+    <TH>DOB</TH>
+    <TH>Gender</TH>
+</TR>
+  </thead>
+  <tbody id="userdetails" class="userdetails">
+    </tbody>
+</table>
+    </div>{% endblock %}
+{% block js %}
+<script>
+$(document).ready(function(){
+    setInterval(function(){
+      $.ajax({
+        url: {% url 'details1' %}
+        }).done(function(data) {
+        $('#userdetails').html(data);
+      });
+    },3000);
+  });
+  </script>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'attendance/basic.html' %}
+
+{% block title %}Attendance Home{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid text-center" >
+  <br>
+<h1 class="text-center" >ATTENDANCE</h1>
+  <br>
+  <table class="table">
+  <thead class="thead-light">
+    <TR>
+    <TH>ID.No</TH>
+    <TH>Name</TH>
+    <TH>CardID</TH>
+    <TH>Phone Number</TH>
+    <TH>Date</TH>
+    <TH>Time In</TH>
+    <TH>Time Out</TH>
+</TR>
+  </thead>
+    <tbody id="cards" class="cards">
+    </tbody>
+  </table>
+</div>
+{% endblock %}
+{% block js %}
+<script>
+$(document).ready(function(){
+    setInterval(function(){
+      $.ajax({
+        url: {% url 'index1' %}
+        }).done(function(data) {
+        $('#cards').html(data);
+      });
+    },3000);
+  });
+  </script>
+{% endblock %}

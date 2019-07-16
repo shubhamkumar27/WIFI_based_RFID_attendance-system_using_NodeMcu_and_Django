@@ -1,0 +1,18 @@
+    {% for user in users %}
+    {% if user.id %}
+    <TR>
+        <TD>{{ user.id}}</TD>
+        <TD>{{ user.card_id}}</TD>
+        {% if user.name %}
+        <TD>{{ user.name}}</TD>
+        <TD>{{ user.phone}}</TD>
+        <TD>{{ user.dob}}</TD>
+        <TD>{{ user.sex}}</TD>
+        {% else %}
+        <TD></TD>
+        <TD></TD>
+        <TD></TD>
+        {% endif %}
+    </TR>
+    {% endif %}
+    {% endfor %}

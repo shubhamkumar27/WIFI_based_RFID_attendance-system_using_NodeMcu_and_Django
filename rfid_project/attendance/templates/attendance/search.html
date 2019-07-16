@@ -1,0 +1,82 @@
+{% extends 'attendance/basic.html' %}
+
+{% block title %}Search User{% endblock %}
+
+{% block body %}
+<div class="bg-info">
+    <br>
+<h1 class="text-center" >{{ use.id }} : {{ use.name.upper }}</h1>
+  <br>
+</div>
+<div class="container-fluid" >
+    <div class="row">
+  <div class="col-7 my-2" >
+<div class="card border-primary">
+  <div class="card-body bg-warning">
+    <blockquote class="blockquote mb-0">
+      <h2 class="text-center text-danger" >DETAILS</h2><br>
+      <div style="height: 100px;">
+  <div class="h-50 d-inline-block" style="width: 200px;">
+    <h6 class="text-center" >CARD ID</h6>
+      <h2 class="text-center" >{{ use.card_id }}</h2>
+  </div>
+  <div class="h-50 d-inline-block" style="width: 270px;">
+    <h6 class="text-center" >PHONE NUMBER</h6>
+      <h2 class="text-center " >{{ use.phone }}</h2>
+  </div>
+  <div class="h-50 d-inline-block" style="width: 140px;">
+    <h6 class="text-center" >GENDER</h6>
+      <h2 class="text-center" >{{ use.sex }}</h2>
+  </div>
+      </div>
+      <br>
+      <div style="height: 100px;">
+  <div class="h-50 d-inline-block" style="width: 380px;">
+    <h6 class="text-center" >EMAIL ID</h6>
+      <h2 class="text-center" >{{ use.email }}</h2>
+  </div>
+  <div class="h-50 d-inline-block" style="width: 270px;">
+    <h6 class="text-center" >DATE OF BIRTH</h6>
+      <h2 class="text-center" >{{ use.dob }}</h2>
+  </div>
+      </div>
+      <br>
+      <div style="height: 30px;">
+  <div class="h-50 d-inline-block" style="width: 380px;">
+    <h6 class="text-center" >ADDRESS</h6>
+  </div>
+      </div>
+      <h2 class="text mx-5" >{{ use.address }}</h2>
+    </blockquote>
+  </div>
+</div>
+  </div>
+      <div class="col-5 text-center">
+      <br>
+  <h2 class="text-center text-success" >ATTENDANCE THIS MONTH</h2>
+  <br>
+    <div id="manage" class="manage">
+<table class="table">
+  <thead class="thead-light">
+    <TR>
+    <TH>DATE</TH>
+    <TH>TIME IN</TH>
+    <TH>TIME OUT</TH>
+</TR>
+  </thead>
+  <tbody>
+    {% for user in log %}
+    <TR>
+        <TD>{{ user.date}}</TD>
+        <TD>{{ user.time_in}}</TD>
+        <TD>{{ user.time_out}}</TD>
+        </TR>
+    {% endfor %}
+  </tbody>
+</table>
+    </div>
+      </div>
+    </div>
+</div>
+
+{% endblock %}
