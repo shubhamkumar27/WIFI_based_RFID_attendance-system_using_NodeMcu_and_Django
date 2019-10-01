@@ -5,3 +5,17 @@
 -> For reading RFID card and sending data to server RFID module RC522 and NodeMCU is used. The server side code is written using django and frontend is made using Bootstrap 4.
 
 -> It also do not requires the wifi credentials to be hard coded inside it. I have used Arduino's Wifi manager library for this. It automatically creates a hotspot when it doesn't find previous or saved wifi. You can simply connect with its hotspot using a device and can give required wifi credentials and it will connect to that easily.
+
+# Technology Stack
+SOFTWARE:
+1) Django Framework
+2) Bootstrap
+3) Javascript-AJAX
+4) HTML and CSS
+
+HARDWARE:
+1) NodeMCU
+2) RC-522 RFID Reader
+3) LEDs and Buzzer
+
+# SCREENSHOTS
