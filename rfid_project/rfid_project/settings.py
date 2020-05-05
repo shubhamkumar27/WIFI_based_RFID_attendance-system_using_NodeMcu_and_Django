@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'rfid_project.Middleware.RedirectMiddleware'
 ]
 
 ROOT_URLCONF = 'rfid_project.urls'
@@ -69,7 +70,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'rfid_project.wsgi.application'
-
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/login'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
