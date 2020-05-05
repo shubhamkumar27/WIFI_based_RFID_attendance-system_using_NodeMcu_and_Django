@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+      <style>
+     .card-signin {
+
+      border: 0;
+      border-radius: 2rem;
+      box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+}
+     .form-label-group input {
+      height: auto;
+      border-radius: 2rem;
+}
+     .form-signin .btn {
+      font-size: 100%;
+      border-radius: 5rem;
+      letter-spacing: .1rem;
+      font-weight: bold;
+      transition: all 0.2s;
+}
+      </style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>User Login</title>
+  </head>
+  <body>
+     </div>
+      <div class="container-fluid bg-warning">
+      <br>
+      <h1 class="text-center">RFID Attendance System</h1>
+       <br>
+          </div>
+      <div class="container-fluid bg-info">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 yes mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+              {% if message %}
+              <h6 class="text-center text-danger">Invalid Credentials</h6>
+              {% endif %}
+            <h5 class="card-title text-center">Sign In</h5>
+            <form class="form-signin" action="/login/" method="post"> {% csrf_token %}
+              {{ form.as_p }}
+              <br>
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+              <hr class="my-4">
+                <h6 class="text-center">Created by : Shubham Kumar</h6>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+     <br>
+  </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
